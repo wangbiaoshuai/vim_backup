@@ -160,3 +160,13 @@ let NERDTreeHighlightCursorline=0
 let NERDChristmasTree=1
 let NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.vim$', '\.swp$']
+
+
+"vbookmark设置
+let g:vbookmark_bookmarkSaveFile = $HOME . '/.vimbookmark'
+"禁用默认的按键绑定
+let g:vbookmark_disableMapping = 1
+"使用自定义的书签快捷键
+nnoremap <silent> <F9> :VbookmarkToggle<CR>
+nnoremap <silent> <F10> : VbookmarkNext<CR>
+nnoremap <silent> <C-F10> : VbookmarkPrevious<CR>
