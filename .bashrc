@@ -27,7 +27,7 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias ctags='ctags --languages=c++ --langmap=c++:+.inl -h +.inl --c++-kinds=+px --fields=+iaS --extra=+q -R'
 LESS+="-erX"
-alias ctagsfile="echo -e \"!_TAG_FILE_SORTED\t2\t/2=foldcase/\" > filenametags; find . -not -regex '.*\.\(png\|gif\)' -type f -printf \"%f\t%p\t1\n\" | \
+alias ctagsfile="echo -e \"!_TAG_FILE_SORTED\t2\t/2=foldcase/\" > filenametags; find . -not -regex '.*\.\(png\|gif\|o\)' -type f -printf \"%f\t${PWD}/%p\t1\n\" | \
     sort -f >> filenametags"
 
 # english
