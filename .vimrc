@@ -114,7 +114,23 @@ set tags+=/usr/include/tags
 filetype plugin indent on
 
 set completeopt=longest,menu
-nmap <F6> <Esc>:!ctags --fields=+iaS --extra=+q -R *<CR>
+"nmap <F6> <Esc>:!ctags --languages=c++ --langmap=c++:+.inl -h +.inl --c++-kinds=+px --fields=+iaS --extra=+q -R *<CR>
+
+function! UpdateCtags()
+    let curdir=getcwd()
+    while !filereadable("./tags")
+        cd ..
+        if getcwd() == "/"
+            break
+        endif
+    endwhile
+    if filewritable("./tags")
+        !ctags -R --file-scope=yes --langmap=c:+.h --languages=c,c++ --links=yes --c++-kinds=+p --fields=+iaS --extra=+q
+        TlistUpdate
+    endif
+    execute ":cd " . curdir
+endfunction
+nmap <F6> :call UpdateCtags()<CR>
 
 "自动补全窗口颜色设置
 hi Pmenu ctermfg=black ctermbg=gray guibg=#444444
