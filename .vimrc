@@ -226,4 +226,10 @@ function! LookupFile_IgnoreCaseFunc(pattern)
     let files = map(tags, 'v:val["filename"]')
     return files
 endfunction
-let g:LookupFile_LookupFunc = 'LookupFile_IgnoreCaseFunc' 
+let g:LookupFile_LookupFunc = 'LookupFile_IgnoreCaseFunc'
+
+
+""""""""""""""'""""""""""""""""""
+"rainbow
+"""""""""""""""""""""""""""""""""
+let g:rainbow_active=1
