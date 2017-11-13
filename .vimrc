@@ -233,3 +233,9 @@ let g:LookupFile_LookupFunc = 'LookupFile_IgnoreCaseFunc'
 "rainbow
 """""""""""""""""""""""""""""""""
 let g:rainbow_active=1
+
+
+""""""""""""""'""""""""""""""""""
+"matrix
+"""""""""""""""""""""""""""""""""
+nmap <silent> <F7> :Matrix<cr>

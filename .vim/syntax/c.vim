@@ -48,4 +48,4 @@ hi default link cFunction Include
  "========================================================
  " My Own DataType
  "========================================================
- syn keyword cType        pthread_t sem_t pthread_mutex_t
+ syn keyword cType        pthread_t sem_t pthread_mutex_t pthread_cond_t this
