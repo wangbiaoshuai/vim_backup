@@ -61,7 +61,7 @@ set statusline=%F%m%r%h%w\ [%{&ff}]\[TYPE=%Y]\[POS=%l,%v][%p%%]
 
 set laststatus=2
 
-set mouse=a
+set mouse=nihrv
 
 "set selection=inclusive
 
@@ -109,7 +109,7 @@ let Tlist_Enable_Fold_Column = 0
 let Tlist_Process_File_Always = 1
 
 set tags=tags;
-set autochdir
+"set autochdir
 set tags+=/usr/include/tags
 filetype plugin indent on
 
@@ -125,7 +125,9 @@ function! UpdateCtags()
         endif
     endwhile
     if filewritable("./tags")
-        !ctags -R --file-scope=yes --langmap=c:+.h --languages=c,c++ --links=yes --c++-kinds=+p --fields=+iaS --extra=+q
+  "       !ctags -R --file-scope=yes --langmap=c:+.h --languages=c,c++ --links=yes --c++-kinds=+p --fields=+iaS --extra=+q
+        !ctags --languages=c,c++ --langmap=c++:+.inl -h +.inl --c++-kinds=+px --fields=+iaS --extra=+q -R
+        !ctagsfile
         TlistUpdate
     endif
     execute ":cd " . curdir
@@ -238,4 +240,4 @@ let g:rainbow_active=1
 """"""""""""""'""""""""""""""""""
 "matrix
 """""""""""""""""""""""""""""""""
-nmap <silent> <F7> :Matrix<cr>
+"nmap <silent> <F7> :Matrix<cr>
